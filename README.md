@@ -1,1 +1,7 @@
-"# DP-Neural-context-aware-movie-recommendation" 
+# Neural context aware movie recommendation
+
+## Master's Thesis
+
+
+### Author: Bc. Adam Baran-Tomik
+
