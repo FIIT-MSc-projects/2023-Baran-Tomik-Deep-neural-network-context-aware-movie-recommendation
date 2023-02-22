@@ -1,4 +1,4 @@
-# Neural context aware movie recommendation
+# Deep neural network context-aware movie recommendation
 
 ## Master's Thesis
 
