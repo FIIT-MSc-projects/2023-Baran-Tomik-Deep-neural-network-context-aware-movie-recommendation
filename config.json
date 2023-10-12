@@ -1,6 +1,0 @@
-{
-    "1m_dataset_path":"/dataset/ml-1m/",
-    "25m_dataset_path":"/dataset/ml-25m/",
-    "1m_new_context_path":"/dataset/ml-1m/new_context/",
-    "context_data":"/dataset/ml-1m/new_context/context_data.csv"
-}
