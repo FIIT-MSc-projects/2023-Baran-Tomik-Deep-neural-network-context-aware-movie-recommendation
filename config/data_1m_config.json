@@ -1,0 +1,11 @@
+{
+    "dataset_path":"/dataset/ml-1m/",
+    "new_context_path":"/dataset/ml-1m/new_context/",
+    "context_data":"/dataset/ml-1m/new_context/context_data.csv",
+    "target_data":"/dataset/ml-1m/new_context/ratings_target.csv",
+    "split_data":"/dataset/ml-1m/split_data/",
+    "training_data":"/1m/training/",
+    "original_csv_movies_data":"/dataset/ml-1m/original_csv/movies.csv",
+    "original_csv_ratings_data":"/dataset/ml-1m/original_csv/ratings.csv",
+    "original_csv_users_data":"/dataset/ml-1m/original_csv/users.csv"
+}
