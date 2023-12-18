@@ -4,6 +4,8 @@ day
 is_weekday
 season
 part_of_day
+holiday
+user_gender
 user_age
 user_occupation
 user_zip_code
@@ -17,7 +19,7 @@ genre_documentary
 genre_drama
 genre_fantasy
 genre_film-noir
-genre_for_children
+genre_forchildren
 genre_horror
 genre_musical
 genre_mystery
@@ -26,5 +28,3 @@ genre_sci-fi
 genre_thriller
 genre_war
 genre_western
-holiday
-user_gender

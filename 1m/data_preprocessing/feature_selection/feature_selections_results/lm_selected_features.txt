@@ -5,7 +5,7 @@ genre_animation
 genre_documentary
 genre_drama
 genre_film-noir
-genre_for_children
+genre_forchildren
 genre_horror
 genre_thriller
 genre_war
