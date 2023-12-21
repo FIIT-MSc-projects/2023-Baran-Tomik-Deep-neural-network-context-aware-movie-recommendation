@@ -1,5 +1,5 @@
 # import tensorflow as tf
-from keras.layers import Activation, Dense, Dropout, LSTM, Bidirectional
+from keras.layers import Activation, Dense, Dropout, LSTM, Bidirectional, Flatten
 from keras.models import Sequential
 from keras.optimizers import Adam, RMSprop, Adadelta
 from keras.losses import MeanSquaredError as LossMSE
@@ -22,6 +22,9 @@ def create_model(architecture=None, lr=0.001, train_data_shape=None):
     elif architecture == 3:
         print("Model 3")
         return model_3(lr=lr, train_data_shape=train_data_shape)
+    elif architecture == 4:
+        print("Model 4")
+        return model_4(lr=lr, train_data_shape=train_data_shape)
     else:
         return None
 
@@ -107,6 +110,30 @@ def model_3(lr=0.001, train_data_shape=None):
     model.add(Activation('linear'))
 
     model.compile(optimizer=Adam(learning_rate=lr), loss=LossMSE(), metrics=[RootMeanSquaredError(), MeanAbsoluteError()])
+
+    return model
+
+
+def model_4(lr, train_data_shape=None):
+    model = Sequential()
+    model.add(Dense(512, input_shape=(train_data_shape,)))
+    model.add(Activation('relu'))
+    model.add(Dropout(0.2))
+
+    model.add(Flatten())
+
+    model.add(Dense(512, input_shape=(train_data_shape,)))
+    model.add(Activation('relu'))
+    model.add(Dropout(0.2))
+
+    model.add(Dense(256, input_shape=(train_data_shape,)))
+    model.add(Activation('relu'))
+    model.add(Dropout(0.2))
+
+    model.add(Dense(1))
+
+    # model.compile(optimizer=Adam(), loss=LossListMLE(), metrics=[MeanAbsoluteError(), RootMeanSquaredError(), NDCGMetric(name="ndcg_metric")])
+    model.compile(optimizer=Adam(), loss=LossMSE(), metrics=[RootMeanSquaredError(), MeanAbsoluteError()])
 
     return model
 

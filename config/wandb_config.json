@@ -1,7 +1,7 @@
 {
     "wandb_log": "true",
-    "wandb_run_name": "arch3_bidir_lstm_lrSchedule_noReLU_1",
-    "wandb_group_name": "LSTM",
+    "wandb_run_name": "arch4_fs_mi",
+    "wandb_group_name": "Dense",
     "wandb_entity": "xbarantomik",
     "wandb_project_name": "DP",
     "new_model": "true",

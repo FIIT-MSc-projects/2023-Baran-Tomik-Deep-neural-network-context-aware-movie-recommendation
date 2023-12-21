@@ -1,7 +1,8 @@
 {
-    "epochs": "350",
+    "epochs": "35",
     "batch_size": "128",
-    "learning_rate": "0.01",
-    "patience": "45",
-    "architecture": "2"
+    "learning_rate": "0.001",
+    "patience": "7",
+    "architecture": "4",
+    "training_data_file": "mi_context_data"
 }
