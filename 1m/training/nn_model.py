@@ -25,6 +25,9 @@ def create_model(architecture=None, lr=0.001, train_data_shape=None):
     elif architecture == 4:
         print("Model 4")
         return model_4(lr=lr, train_data_shape=train_data_shape)
+    elif architecture == 5:
+        print("Model 5")
+        return model_5(lr=lr, train_data_shape=train_data_shape)
     else:
         return None
 
@@ -138,7 +141,36 @@ def model_4(lr, train_data_shape=None):
     return model
 
 
+def model_5(lr, train_data_shape=None):
+    model = Sequential()
+    model.add(Dense(512, input_shape=(train_data_shape,)))
+    model.add(Activation('relu'))
+    model.add(Dropout(0.2))
 
+    model.add(Flatten())
+
+    model.add(Dense(512, input_shape=(train_data_shape,)))
+    model.add(Activation('relu'))
+    model.add(Dropout(0.2))
+
+    model.add(Dense(512, input_shape=(train_data_shape,)))
+    model.add(Activation('relu'))
+    model.add(Dropout(0.2))
+
+    model.add(Dense(256, input_shape=(train_data_shape,)))
+    model.add(Activation('relu'))
+    model.add(Dropout(0.2))
+
+    model.add(Dense(256, input_shape=(train_data_shape,)))
+    model.add(Activation('relu'))
+    model.add(Dropout(0.2))
+
+    model.add(Dense(1))
+
+    # model.compile(optimizer=Adam(), loss=LossListMLE(), metrics=[MeanAbsoluteError(), RootMeanSquaredError(), NDCGMetric(name="ndcg_metric")])
+    model.compile(optimizer=Adam(), loss=LossMSE(), metrics=[RootMeanSquaredError(), MeanAbsoluteError()])
+
+    return model
 
 
 
