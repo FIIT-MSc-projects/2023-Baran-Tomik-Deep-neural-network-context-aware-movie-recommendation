@@ -1,2 +1,5 @@
-/dataset/ml-25m
-/25m
+# /dataset/ml-25m
+# /25m
+1m/training/data/lstm_data/
+1m/training/data/mi_context_data/
+1m/training/data/lr_context_data/

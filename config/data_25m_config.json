@@ -1,0 +1,13 @@
+{
+    "dataset_path":"/dataset/ml-25m/",
+    "original_csv_movies_data":"/dataset/ml-25m/original/movies.csv",
+    "original_csv_ratings_data":"/dataset/ml-25m/original/ratings.csv",
+    "new_context_path":"/dataset/ml-25m/new_context/",
+    
+    "context_data":"/dataset/ml-25m/new_context/context_data.csv",
+    "target_data":"/dataset/ml-25m/new_context/ratings_target.csv",
+    "split_data":"/dataset/ml-25m/split_data/",
+    "feature_selected_path":"/dataset/ml-25m/feature_selected/",
+    "training_data":"/25m/training/",
+    "feature_selected_context_path":"/dataset/ml-25m/feature_selected/"
+}
