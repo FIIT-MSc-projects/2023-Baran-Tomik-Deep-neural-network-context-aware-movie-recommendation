@@ -1,15 +1,14 @@
-# import tensorflow as tf
-from keras.layers import Activation, Dense, Dropout, LSTM, Bidirectional, Flatten
+from keras.layers import Activation, Dense, Dropout, LSTM, Bidirectional, Flatten, LeakyReLU
 from keras.models import Sequential
 from keras.optimizers import Adam, RMSprop, Adadelta
 from keras.losses import MeanSquaredError as LossMSE
 from keras.losses import MeanAbsoluteError as LossMAE
 from keras.losses import CosineSimilarity as LossCosSim
 from keras.losses import MeanSquaredLogarithmicError as LossLog
-from keras.metrics import MeanSquaredError, MeanAbsoluteError, RootMeanSquaredError
+from keras.metrics import MeanSquaredError, MeanAbsoluteError, RootMeanSquaredError, R2Score
 
 
-def create_model(architecture=None, lr=0.001, train_data_shape=None):
+def create_model(architecture=None, lr=0.001, train_data_shape=None, alpha=0.3):
     if architecture == 0:
         print("Model 0")
         return model_0(lr=lr, train_data_shape=train_data_shape)
@@ -28,6 +27,18 @@ def create_model(architecture=None, lr=0.001, train_data_shape=None):
     elif architecture == 5:
         print("Model 5")
         return model_5(lr=lr, train_data_shape=train_data_shape)
+    elif architecture == 6:
+        print("Model 6")
+        return model_6(lr=lr, train_data_shape=train_data_shape)
+    elif architecture == 7:
+        print("Model 7")
+        return model_7(lr=lr, alphaNumber=alpha, train_data_shape=train_data_shape)
+    elif architecture == 8:
+        print("Model 8")
+        return model_8(lr=lr, train_data_shape=train_data_shape)
+    # elif architecture == 9:
+    #     print("Model 9")
+    #     return model_9(lr=lr, train_data_shape=train_data_shape)
     else:
         return None
 
@@ -168,10 +179,126 @@ def model_5(lr, train_data_shape=None):
     model.add(Dense(1))
 
     # model.compile(optimizer=Adam(), loss=LossListMLE(), metrics=[MeanAbsoluteError(), RootMeanSquaredError(), NDCGMetric(name="ndcg_metric")])
-    model.compile(optimizer=Adam(), loss=LossMSE(), metrics=[RootMeanSquaredError(), MeanAbsoluteError()])
+    model.compile(optimizer=Adam(), loss=LossMSE(), metrics=[RootMeanSquaredError(), MeanAbsoluteError(), R2Score()])
 
     return model
 
+
+def model_6(lr, train_data_shape=None):
+    model = Sequential()
+    model.add(Dense(512, input_shape=(train_data_shape,)))
+    model.add(Activation('relu'))
+    model.add(Dropout(0.5))
+
+    model.add(Dense(512, input_shape=(train_data_shape,)))
+    model.add(Activation('relu'))
+    model.add(Dropout(0.5))
+
+    model.add(Dense(512, input_shape=(train_data_shape,)))
+    model.add(Activation('relu'))
+    model.add(Dropout(0.5))
+
+    model.add(Dense(256, input_shape=(train_data_shape,)))
+    model.add(Activation('relu'))
+    model.add(Dropout(0.5))
+
+    model.add(Dense(256, input_shape=(train_data_shape,)))
+    model.add(Activation('relu'))
+    model.add(Dropout(0.5))
+
+    model.add(Dense(1))
+
+    model.compile(optimizer=Adam(), loss=LossMSE(), metrics=[RootMeanSquaredError(), MeanAbsoluteError(), R2Score()])
+
+    return model
+
+
+def model_7(lr, alphaNumber, train_data_shape=None):
+    print("LekyReLU alpha: ", alphaNumber)
+    model = Sequential()
+    model.add(Dense(512, input_shape=(train_data_shape,)))
+    model.add(LeakyReLU(alpha=alphaNumber))
+    model.add(Dropout(0.2))
+
+    model.add(Flatten())
+
+    model.add(Dense(512, input_shape=(train_data_shape,)))
+    model.add(LeakyReLU(alpha=alphaNumber))
+    model.add(Dropout(0.2))
+
+    model.add(Dense(512, input_shape=(train_data_shape,)))
+    model.add(LeakyReLU(alpha=alphaNumber))
+    model.add(Dropout(0.2))
+
+    model.add(Dense(256, input_shape=(train_data_shape,)))
+    model.add(LeakyReLU(alpha=alphaNumber))
+    model.add(Dropout(0.2))
+
+    model.add(Dense(256, input_shape=(train_data_shape,)))
+    model.add(LeakyReLU(alpha=alphaNumber))
+    model.add(Dropout(0.2))
+
+    model.add(Dense(1))
+
+    model.compile(optimizer=Adam(), loss=LossMSE(), metrics=[RootMeanSquaredError(), MeanAbsoluteError(), R2Score()])
+
+    return model
+
+
+def model_8(lr, train_data_shape=None):
+    model = Sequential()
+    model.add(Dense(512, input_shape=(train_data_shape,)))
+    model.add(Activation('sigmoid'))
+    model.add(Dropout(0.2))
+
+    model.add(Flatten())
+
+    model.add(Dense(512, input_shape=(train_data_shape,)))
+    model.add(Activation('sigmoid'))
+    model.add(Dropout(0.2))
+
+    model.add(Dense(512, input_shape=(train_data_shape,)))
+    model.add(Activation('sigmoid'))
+    model.add(Dropout(0.2))
+
+    model.add(Dense(256, input_shape=(train_data_shape,)))
+    model.add(Activation('sigmoid'))
+    model.add(Dropout(0.2))
+
+    model.add(Dense(256, input_shape=(train_data_shape,)))
+    model.add(Activation('sigmoid'))
+    model.add(Dropout(0.2))
+
+    model.add(Dense(1))
+    model.add(Activation('linear'))
+
+    model.compile(optimizer=Adam(), loss=LossMSE(), metrics=[RootMeanSquaredError(), MeanAbsoluteError(), R2Score()])
+
+    return model
+
+
+def model_9(lr, train_data_shape=None):
+    model = Sequential()
+    model.add(Dense(256, input_shape=(train_data_shape,)))
+    model.add(Activation('relu'))
+    model.add(Dropout(0.5))
+
+    model.add(Dense(256, input_shape=(train_data_shape,)))
+    model.add(Activation('relu'))
+    model.add(Dropout(0.5))
+
+    model.add(Dense(128, input_shape=(train_data_shape,)))
+    model.add(Activation('relu'))
+    model.add(Dropout(0.5))
+
+    model.add(Dense(128, input_shape=(train_data_shape,)))
+    model.add(Activation('relu'))
+
+    model.add(Dense(1))
+
+    model.compile(optimizer=Adam(), loss=LossMSE(), metrics=[RootMeanSquaredError(), MeanAbsoluteError(), R2Score()])
+
+    return model
 
 
 # def create_model_run2(lr=0.001):
@@ -394,3 +521,4 @@ def model_5(lr, train_data_shape=None):
 #                   metrics=[MeanSquaredError(), MeanAbsoluteError()])
 #                                                                                                     # tfa.metrics.RSquare()
 #     return model
+

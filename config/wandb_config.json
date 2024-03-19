@@ -1,7 +1,7 @@
 {
     "wandb_log": "true",
-    "wandb_run_name": "arch5_1m_movielens_context",
-    "wandb_group_name": "1m_deep_dense",
+    "wandb_run_name": "arch8_25m_added_imdb_context_max_abs_scaler",
+    "wandb_group_name": "25m_deep_dense",
     "wandb_entity": "xbarantomik",
     "wandb_project_name": "DP",
     "new_model": "true",
