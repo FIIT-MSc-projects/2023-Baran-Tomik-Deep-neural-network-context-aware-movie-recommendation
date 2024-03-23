@@ -36,9 +36,9 @@ def create_model(architecture=None, lr=0.001, train_data_shape=None, alpha=0.3):
     elif architecture == 8:
         print("Model 8")
         return model_8(lr=lr, train_data_shape=train_data_shape)
-    # elif architecture == 9:
-    #     print("Model 9")
-    #     return model_9(lr=lr, train_data_shape=train_data_shape)
+    elif architecture == 9:
+        print("Model 9")
+        return model_9(lr=lr, train_data_shape=train_data_shape)
     else:
         return None
 
@@ -279,26 +279,67 @@ def model_8(lr, train_data_shape=None):
 
 def model_9(lr, train_data_shape=None):
     model = Sequential()
-    model.add(Dense(256, input_shape=(train_data_shape,)))
-    model.add(Activation('relu'))
-    model.add(Dropout(0.5))
+    model.add(Dense(512, input_shape=(train_data_shape,)))
+    model.add(Activation('sigmoid'))
+    model.add(Dropout(0.2))
+
+    model.add(Flatten())
+
+    model.add(Dense(512, input_shape=(train_data_shape,)))
+    model.add(Activation('sigmoid'))
+    model.add(Dropout(0.2))
+
+    model.add(Dense(512, input_shape=(train_data_shape,)))
+    model.add(Activation('sigmoid'))
+    model.add(Dropout(0.2))
+
+    model.add(Dense(512, input_shape=(train_data_shape,)))
+    model.add(Activation('sigmoid'))
+    model.add(Dropout(0.2))
 
     model.add(Dense(256, input_shape=(train_data_shape,)))
-    model.add(Activation('relu'))
-    model.add(Dropout(0.5))
+    model.add(Activation('sigmoid'))
+    model.add(Dropout(0.2))
+
+    model.add(Dense(256, input_shape=(train_data_shape,)))
+    model.add(Activation('sigmoid'))
+    model.add(Dropout(0.2))
 
     model.add(Dense(128, input_shape=(train_data_shape,)))
-    model.add(Activation('relu'))
-    model.add(Dropout(0.5))
-
-    model.add(Dense(128, input_shape=(train_data_shape,)))
-    model.add(Activation('relu'))
+    model.add(Activation('sigmoid'))
+    model.add(Dropout(0.2))
 
     model.add(Dense(1))
+    model.add(Activation('linear'))
 
     model.compile(optimizer=Adam(), loss=LossMSE(), metrics=[RootMeanSquaredError(), MeanAbsoluteError(), R2Score()])
 
     return model
+
+
+
+# def model_10(lr, train_data_shape=None):
+#     model = Sequential()
+#     model.add(Dense(256, input_shape=(train_data_shape,)))
+#     model.add(Activation('relu'))
+#     model.add(Dropout(0.5))
+
+#     model.add(Dense(256, input_shape=(train_data_shape,)))
+#     model.add(Activation('relu'))
+#     model.add(Dropout(0.5))
+
+#     model.add(Dense(128, input_shape=(train_data_shape,)))
+#     model.add(Activation('relu'))
+#     model.add(Dropout(0.5))
+
+#     model.add(Dense(128, input_shape=(train_data_shape,)))
+#     model.add(Activation('relu'))
+
+#     model.add(Dense(1))
+
+#     model.compile(optimizer=Adam(), loss=LossMSE(), metrics=[RootMeanSquaredError(), MeanAbsoluteError(), R2Score()])
+
+#     return model
 
 
 # def create_model_run2(lr=0.001):
