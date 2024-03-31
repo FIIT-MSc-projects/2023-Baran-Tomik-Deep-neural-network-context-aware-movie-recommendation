@@ -1,0 +1,13 @@
+{
+    "data_path":"data/",
+    "ratings_only_userid_movieid":"data/recsys_ratings_only_userid_movieid.csv",
+    "movies_with_context":"data/movies_with_context.csv",
+    "movies_context":"data/recsys_movies_context_data.csv",
+    "holidays":"data/holidays.json",
+    "scaler":"data/transform_data/25m_added_imdb_context_scaler.pkl",
+    "actor_label_encoder":"data/transform_data/actor_label_encoder.pkl",
+    "directors_label_encoder":"data/transform_data/directors_label_encoder.pkl",
+    "holiday_label_encoder":"data/transform_data/holiday_label_encoder.pkl",
+    "titleType_label_encoder":"data/transform_data/titleType_label_encoder.pkl",
+    "model":"model/arch8_25m_added_imdb_context_max_abs_scaler_pc_trained.keras"
+}
