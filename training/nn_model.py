@@ -305,7 +305,7 @@ def model_9(lr, train_data_shape=None):
     model.add(Activation('sigmoid'))
     model.add(Dropout(0.2))
 
-    model.add(Dense(128, input_shape=(train_data_shape,)))
+    model.add(Dense(256, input_shape=(train_data_shape,)))
     model.add(Activation('sigmoid'))
     model.add(Dropout(0.2))
 
