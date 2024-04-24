@@ -1,7 +1,11 @@
-# /dataset/ml-25m
+/dataset/
 # /25m
 # 1m/training/data/lstm_data/
 # 1m/training/data/mi_context_data/
 # 1m/training/data/lr_context_data/
 /training/wandb/
+/training/checkpoints/
+/training/__pycache__/
+/training/data_1m/
+/training/data_25m/
 /recommender/.idea/

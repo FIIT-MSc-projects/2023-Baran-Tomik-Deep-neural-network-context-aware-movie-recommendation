@@ -1,8 +1,8 @@
 {
-    "epochs": "35",
+    "epochs": "25",
     "batch_size": "512",
     "learning_rate": "0.001",
     "patience": "8",
-    "architecture": "9",
+    "architecture": "6",
     "training_data_file": "added_imdb_context_max_abs_scaler"
 }

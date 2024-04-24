@@ -1,6 +1,6 @@
 {
     "wandb_log": "true",
-    "wandb_run_name": "arch9_25m_added_imdb_context_max_abs_scaler",
+    "wandb_run_name": "arch6_25m_added_imdb_context_max_abs_scaler_lr_exp_decay_gc",
     "wandb_group_name": "25m_deep_dense",
     "wandb_entity": "xbarantomik",
     "wandb_project_name": "DP",
