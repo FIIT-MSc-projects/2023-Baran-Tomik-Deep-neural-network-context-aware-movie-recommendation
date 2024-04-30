@@ -4,10 +4,10 @@
     "movies_with_context":"data/movies_with_context.csv",
     "movies_context":"data/recsys_movies_context_data.csv",
     "holidays":"data/holidays.json",
-    "scaler":"data/transform_data/25m_added_imdb_context_scaler.pkl",
-    "actor_label_encoder":"data/transform_data/actor_label_encoder.pkl",
-    "directors_label_encoder":"data/transform_data/directors_label_encoder.pkl",
-    "holiday_label_encoder":"data/transform_data/holiday_label_encoder.pkl",
-    "titleType_label_encoder":"data/transform_data/titleType_label_encoder.pkl",
+    "scaler":"data/transform_data/25m/25m_added_imdb_context_scaler.pkl",
+    "actor_label_encoder":"data/transform_data/25m/actor_label_encoder.pkl",
+    "directors_label_encoder":"data/transform_data/25m/directors_label_encoder.pkl",
+    "holiday_label_encoder":"data/transform_data/25m/holiday_label_encoder.pkl",
+    "titleType_label_encoder":"data/transform_data/25m/titleType_label_encoder.pkl",
     "model":"model/arch8_25m_profile_1_trained.keras"
 }
