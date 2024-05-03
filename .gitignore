@@ -1,11 +1,10 @@
 /dataset/
 # /25m
-# 1m/training/data/lstm_data/
-# 1m/training/data/mi_context_data/
-# 1m/training/data/lr_context_data/
 /training/wandb/
 /training/checkpoints/
 /training/__pycache__/
+/training/trained_models/
 /training/data_1m/
 /training/data_25m/
+/training/data_25m/added_imdb_context_max_abs_scaler/
 /recommender/.idea/

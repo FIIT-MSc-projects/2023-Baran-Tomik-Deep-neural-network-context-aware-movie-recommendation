@@ -8,6 +8,5 @@
     "training_data":"/training/",
     "original_csv_movies_data":"/dataset/ml-1m/original_csv/movies.csv",
     "original_csv_ratings_data":"/dataset/ml-1m/original_csv/ratings.csv",
-    "original_csv_users_data":"/dataset/ml-1m/original_csv/users.csv",
-    "feature_selected_context_path":"/dataset/ml-1m/feature_selected/"
+    "original_csv_users_data":"/dataset/ml-1m/original_csv/users.csv"
 }
