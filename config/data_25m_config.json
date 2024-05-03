@@ -7,11 +7,5 @@
     "new_context_data":"/dataset/ml-25m/new_context/context_data.csv",
     "new_context_ratings":"/dataset/ml-25m/new_context/ratings.csv",
     "target_data":"/dataset/ml-25m/new_context/ratings_target.csv",
-    "training_data":"/training/",
-
-
-    "split_data":"/dataset/ml-25m/split_data/",
-    "feature_selected_path":"/dataset/ml-25m/feature_selected/",
-
-    "feature_selected_context_path":"/dataset/ml-25m/feature_selected/"
+    "training_data":"/training/"
 }
