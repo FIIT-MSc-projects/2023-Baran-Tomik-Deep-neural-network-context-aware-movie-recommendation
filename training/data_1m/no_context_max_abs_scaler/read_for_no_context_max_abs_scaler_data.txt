@@ -1,0 +1,1 @@
+Run notebook in "1m\02_no_context\01_cut_1m_context_and_create_train_data.ipynb" to get the required data to this folder.
