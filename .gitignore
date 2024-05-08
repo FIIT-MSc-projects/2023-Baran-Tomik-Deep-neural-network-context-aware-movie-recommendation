@@ -25,4 +25,8 @@
 /training/data_1m/movielens_context_max_abs_scaler/val_data.npy
 /training/data_1m/movielens_context_max_abs_scaler/val_target_ratings.npy
 
+recommender/data/recsys_movie_titles.csv
+recommender/data/recsys_movies_context_data.csv
+recommender/data/recsys_ratings_only_userid_movieid.csv
+
 /recommender/.idea/
