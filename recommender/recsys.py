@@ -246,7 +246,7 @@ def predict_ratings(data_to_predict_on, recsys_config):
 
 def load_movies_with_info(recsys_config):
 
-    return pd.read_csv(recsys_config['movies_with_context'])
+    return pd.read_csv(recsys_config['movie_titles'])
 
 
 def recommend_movies(predictions, top_k, not_rated_movies, all_movies_uncut, count):

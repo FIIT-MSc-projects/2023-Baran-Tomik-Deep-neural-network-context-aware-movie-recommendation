@@ -1,7 +1,7 @@
 {
     "data_path":"data/",
     "ratings_only_userid_movieid":"data/recsys_ratings_only_userid_movieid.csv",
-    "movies_with_context":"data/movies_with_context.csv",
+    "movie_titles":"data/recsys_movie_titles.csv",
     "movies_context":"data/recsys_movies_context_data.csv",
     "holidays":"data/holidays.json",
     "scaler":"data/transform_data/25m/25m_added_imdb_context_scaler.pkl",
