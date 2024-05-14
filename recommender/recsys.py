@@ -1,6 +1,5 @@
+from tensorflow_addons.metrics import RSquare
 from keras.models import load_model
-# import tensorflow as tf
-# from tf.keras.models import load_model
 from datetime import datetime
 from tabulate import tabulate
 import pandas as pd
@@ -8,9 +7,6 @@ import numpy as np
 import joblib
 import json
 import time
-import os
-
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '1'
 
 
 def nice_console_print(message):
@@ -227,14 +223,8 @@ def transform_data(data, recsys_config):
 def predict_ratings(data_to_predict_on, recsys_config):
 
     try:
-        # nn_model = load_model(recsys_config['model'], compile=True)
-        # model_path = "model/arch8_25m_added_imdb_context_max_abs_scaler_checkpoint.h5"
-        # model_path = "model/arch8_25m_added_imdb_context_max_abs_scaler_run2_trained.keras"
-        # nn_model = tf.keras.models.load_model(model_path)
-
-        nn_model = load_model(recsys_config['model'], compile=True)
-        # nn_model = load_model(model_path, compile=True)
-
+        nn_model = load_model(recsys_config['model'], custom_objects={'RSquare': RSquare()}, compile=True)
+        
         predictions = nn_model.predict(data_to_predict_on, verbose=0)
 
         return predictions
@@ -301,28 +291,33 @@ if __name__ == '__main__':
         print('\nRecommending movies...\n')
 
         movies_not_rated_by_user = prepare_movies(valid_user_id, config)
-        # print('1')
+
         movies_with_time_context = add_time_context(movies_not_rated_by_user, config)
-        # print('2')
+
         recsys_data = add_uder_id_and_order_columns(valid_user_id, movies_with_time_context)
-        # print('3')
+
         transformed_data = transform_data(recsys_data, config)
-        # print('4')
+
         predicted_ratins = predict_ratings(transformed_data, config)
-        # print('5')
+
         all_movies = load_movies_with_info(config)
-        # print('6')]
         
         recommend_more = True
         counter = -1    # it will start at zero
         while recommend_more:
             counter = counter + 1
-            recommended_movies, headers = recommend_movies(predicted_ratins, k, movies_not_rated_by_user, all_movies, counter)
 
-            print("Recommended movies:")
-            print(tabulate(recommended_movies, headers=headers, tablefmt="rounded_outline"))
+            # break if there are no predicted ratings left
+            if predicted_ratins.flatten().shape[0] <= k * (counter + 1):
+                print('\nExiting, no more prediction left\n')
+                break
+            else:
+                recommended_movies, headers = recommend_movies(predicted_ratins, k, movies_not_rated_by_user, all_movies, counter)
 
-            recommend_more = recommned_more_titles("Recommend another movies?")
+                print("\nRecommended movies:")
+                print(tabulate(recommended_movies, headers=headers, tablefmt="rounded_outline"))
+
+                recommend_more = recommned_more_titles("Recommend another movies?")
 
     except OSError as er_main:
         print('\nERROR loading config file in main.py')
