@@ -1,0 +1,1 @@
+For comparison in Experiment 4 we used a already trained Architecture 5 model from Experiment 3. To be precise the arch5_25m_added_imdb_context_max_abs_scaler_gn_trained model.
