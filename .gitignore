@@ -1,32 +1,30 @@
-/dataset/
-/training/wandb/
-/training/checkpoints/
-/training/__pycache__/
-/training/trained_models/
+# /dataset/
 
-/training/data_25m/added_imdb_context_max_abs_scaler/actor_label_encoder.pkl
-/training/data_25m/added_imdb_context_max_abs_scaler/directors_label_encoder.pkl
-/training/data_25m/added_imdb_context_max_abs_scaler/holiday_label_encoder.pkl
-/training/data_25m/added_imdb_context_max_abs_scaler/titleType_label_encoder.pkl
-/training/data_25m/added_imdb_context_max_abs_scaler/test_data.npy
-/training/data_25m/added_imdb_context_max_abs_scaler/test_target_ratings.npy
-/training/data_25m/added_imdb_context_max_abs_scaler/train_data.npy
-/training/data_25m/added_imdb_context_max_abs_scaler/train_target_ratings.npy
-/training/data_25m/added_imdb_context_max_abs_scaler/val_data.npy
-/training/data_25m/added_imdb_context_max_abs_scaler/val_target_ratings.npy
+dataset/ml-1m/added_imdb_context/added_imdb_context.csv
+dataset/ml-1m/added_imdb_context/ratings_target.csv
 
-/training/data_1m/movielens_context_max_abs_scaler/1m_movielens_context_scaler.pkl
-/training/data_1m/movielens_context_max_abs_scaler/user_gender_label_encoder.pkl
-/training/data_1m/movielens_context_max_abs_scaler/holiday_label_encoder.pkl
-/training/data_1m/movielens_context_max_abs_scaler/test_data.npy
-/training/data_1m/movielens_context_max_abs_scaler/test_target_ratings.npy
-/training/data_1m/movielens_context_max_abs_scaler/train_data.npy
-/training/data_1m/movielens_context_max_abs_scaler/train_target_ratings.npy
-/training/data_1m/movielens_context_max_abs_scaler/val_data.npy
-/training/data_1m/movielens_context_max_abs_scaler/val_target_ratings.npy
+dataset/ml-1m/feature_selected/l1_context_data.csv
+dataset/ml-1m/feature_selected/lr_context_data.csv
+dataset/ml-1m/feature_selected/mi_context_data.csv
+dataset/ml-1m/feature_selected/ratings_target.csv
+
+dataset/ml-1m/new_context/context_data.csv
+dataset/ml-1m/new_context/movies.csv
+dataset/ml-1m/new_context/ratings_target.csv
+dataset/ml-1m/new_context/ratings.csv
+dataset/ml-1m/new_context/users.csv
+
+dataset/ml-1m/no_context_data/no_context_data.csv
+dataset/ml-1m/no_context_data/ratings_target.csv
+
+dataset/ml-1m/original_csv/movies.csv
+dataset/ml-1m/original_csv/ratings.csv
+dataset/ml-1m/original_csv/users.csv
+
+dataset/ml-25m/new_context/context_data.csv
+dataset/ml-25m/new_context/movies_with_context.csv
+dataset/ml-25m/new_context/ratings_target.csv
 
 recommender/data/recsys_movie_titles.csv
 recommender/data/recsys_movies_context_data.csv
 recommender/data/recsys_ratings_only_userid_movieid.csv
-
-/recommender/.idea/
