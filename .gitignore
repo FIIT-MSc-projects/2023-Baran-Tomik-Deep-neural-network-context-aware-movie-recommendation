@@ -1,30 +1,3 @@
-# /dataset/
+/dataset/
 
-dataset/ml-1m/added_imdb_context/added_imdb_context.csv
-dataset/ml-1m/added_imdb_context/ratings_target.csv
-
-dataset/ml-1m/feature_selected/l1_context_data.csv
-dataset/ml-1m/feature_selected/lr_context_data.csv
-dataset/ml-1m/feature_selected/mi_context_data.csv
-dataset/ml-1m/feature_selected/ratings_target.csv
-
-dataset/ml-1m/new_context/context_data.csv
-dataset/ml-1m/new_context/movies.csv
-dataset/ml-1m/new_context/ratings_target.csv
-dataset/ml-1m/new_context/ratings.csv
-dataset/ml-1m/new_context/users.csv
-
-dataset/ml-1m/no_context_data/no_context_data.csv
-dataset/ml-1m/no_context_data/ratings_target.csv
-
-dataset/ml-1m/original_csv/movies.csv
-dataset/ml-1m/original_csv/ratings.csv
-dataset/ml-1m/original_csv/users.csv
-
-dataset/ml-25m/new_context/context_data.csv
-dataset/ml-25m/new_context/movies_with_context.csv
-dataset/ml-25m/new_context/ratings_target.csv
-
-recommender/data/recsys_movie_titles.csv
-recommender/data/recsys_movies_context_data.csv
-recommender/data/recsys_ratings_only_userid_movieid.csv
+# /recommender/eval/eval_data
