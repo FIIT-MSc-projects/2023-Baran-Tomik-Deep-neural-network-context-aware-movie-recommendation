@@ -1,10 +1,7 @@
 from keras.layers import Activation, Dense, Dropout, LSTM, Bidirectional, Flatten, LeakyReLU
 from keras.models import Sequential
-from keras.optimizers import Adam, SGD, RMSprop, Adadelta
+from keras.optimizers import Adam, SGD
 from keras.losses import MeanSquaredError as LossMSE
-from keras.losses import MeanAbsoluteError as LossMAE
-from keras.losses import CosineSimilarity as LossCosSim
-from keras.losses import MeanSquaredLogarithmicError as LossLog
 from keras.metrics import MeanSquaredError, MeanAbsoluteError, RootMeanSquaredError, R2Score
 
 
@@ -99,7 +96,6 @@ def model_1(lr, train_data_shape=None):
 def model_2(lr=0.001, train_data_shape=None):
     model = Sequential()
 
-    # b4 LSTM data, input_shape = (train_data_shape,)
     model.add(LSTM(256, input_shape=(train_data_shape), return_sequences=True))
     model.add(Activation('relu'))
     model.add(Dropout(0.2))
@@ -118,7 +114,6 @@ def model_2(lr=0.001, train_data_shape=None):
 def model_3(lr=0.001, train_data_shape=None):
     model = Sequential()
 
-    # b4 LSTM data, input_shape = (train_data_shape,)
     model.add(Bidirectional(LSTM(128), input_shape=(train_data_shape)))
     model.add(Dropout(0.2))
 
@@ -344,226 +339,3 @@ def model_10(lr, train_data_shape=None):
     model.compile(optimizer=SGD(), loss=LossMSE(), metrics=[RootMeanSquaredError(), MeanAbsoluteError(), R2Score()])
 
     return model
-
-
-# def create_model_run2(lr=0.001):
-#     model = Sequential([
-#         Dense(32, input_shape=(13,)),
-#         Activation('relu'),
-
-#         Dense(16, input_shape=(32,)),
-#         Activation('relu'),
-#         Dense(8, input_shape=(16,)),
-#         Activation('relu'),
-
-#         Dense(1, input_shape=(8,))
-#     ])
-#     model.compile(optimizer=Adam(learning_rate=lr),
-#                   loss=LossMSE(),
-#                   metrics=[MeanSquaredError(), MeanAbsoluteError()])
-#                                                                                                     # tfa.metrics.RSquare()
-#     return model
-
-
-# def create_model_run3(lr=0.001):
-#     model = Sequential([
-#         Dense(128, input_shape=(13,)),
-#         Activation('relu'),
-
-#         Dense(32, input_shape=(128,)),
-#         Activation('relu'),
-#         Dense(8, input_shape=(32,)),
-#         Activation('relu'),
-
-#         Dense(1, input_shape=(8,))
-#     ])
-#     model.compile(optimizer=Adam(learning_rate=lr),
-#                   loss=LossMSE(),
-#                   metrics=[MeanSquaredError(), MeanAbsoluteError()])
-#                                                                                                     # tfa.metrics.RSquare()
-#     return model
-
-
-# def create_model_run4(lr=0.001):
-#     model = Sequential([
-#         Dense(32, input_shape=(13,)),
-#         Activation('relu'),
-
-#         Dense(64, input_shape=(32,)),
-#         Activation('relu'),
-#         Dense(64, input_shape=(64,)),
-#         Activation('relu'),
-#         Dense(128, input_shape=(64,)),
-#         Activation('relu'),
-#         Dense(64, input_shape=(128,)),
-#         Activation('relu'),
-#         Dense(32, input_shape=(64,)),
-#         Activation('relu'),
-#         Dense(16, input_shape=(32,)),
-#         Activation('relu'),
-#         Dense(8, input_shape=(16,)),
-#         Activation('relu'),
-
-#         Dense(1, input_shape=(8,))
-#     ])
-#     model.compile(optimizer=Adam(learning_rate=lr),
-#                   loss=LossMSE(),
-#                   metrics=[MeanSquaredError(), MeanAbsoluteError()])
-#                                                                                                     # tfa.metrics.RSquare()
-#     return model
-
-
-##--------------------------------------------------------------------------------------------------------------------##
-
-# def create_model_run5(lr=0.001):
-#     model = Sequential([
-#         Dense(128, input_shape=(13,)),
-#         Activation('leaky_relu'),
-
-#         Dense(32, input_shape=(128,)),
-#         Activation('leaky_relu'),
-#         Dense(8, input_shape=(32,)),
-#         Activation('leaky_relu'),
-
-#         Dense(1, input_shape=(8,))
-#     ])
-#     model.compile(optimizer=Adam(learning_rate=lr),
-#                   loss=LossMSE(),
-#                   metrics=[MeanSquaredError(), MeanAbsoluteError()])
-#                                                                                                     # tfa.metrics.RSquare()
-#     return model
-
-
-# # # run6 (0.6), run7 (0.2), 
-# def create_model_run6(lr=0.001):
-#     model = Sequential([
-#         Dense(128, input_shape=(13,)),
-#         Activation('relu'),
-#         Dropout(0.2),
-
-#         Dense(32, input_shape=(128,)),
-#         Activation('relu'),
-#         Dense(8, input_shape=(32,)),
-#         Activation('relu'),
-
-#         Dense(1, input_shape=(8,))
-#     ])
-#     model.compile(optimizer=Adam(learning_rate=lr),
-#                   loss=LossMSE(),
-#                   metrics=[MeanSquaredError(), MeanAbsoluteError()])
-#                                                                                                     # tfa.metrics.RSquare()
-#     return model
-
-# def create_model_run8(lr=0.001):
-#     model = Sequential([
-#         Dense(128, input_shape=(13,)),
-#         Activation('relu'),
-#         Dropout(0.2),
-
-#         Dense(32, input_shape=(128,)),
-#         Activation('relu'),
-#         Dropout(0.2),
-#         Dense(8, input_shape=(32,)),
-#         Activation('relu'),
-#         Dropout(0.2),
-
-#         Dense(1, input_shape=(8,))
-#     ])
-#     model.compile(optimizer=Adam(learning_rate=lr),
-#                   loss=LossMSE(),
-#                   metrics=[MeanSquaredError(), MeanAbsoluteError()])
-#                                                                                                     # tfa.metrics.RSquare()
-#     return model
-
-
-# def create_model_run(lr=0.001):
-#     model = Sequential([
-#         Dense(128, input_shape=(13,)),
-#         Activation('relu'),
-
-#         Dense(32, input_shape=(128,)),
-#         Activation('relu'),
-#         Dense(8, input_shape=(32,)),
-#         Activation('relu'),
-
-#         Dense(1, input_shape=(8,))
-#     ])
-#     model.compile(optimizer=RMSprop(learning_rate=lr),
-#                   loss=LossMSE(),
-#                   metrics=[MeanSquaredError(), MeanAbsoluteError()])
-#                                                                                                     # tfa.metrics.RSquare()
-#     return model
-
-
-# def create_model_run(lr=0.001):
-#     model = Sequential([
-#         Dense(128, input_shape=(13,)),
-#         Activation('relu'),
-
-#         Dense(32, input_shape=(128,)),
-#         Activation('relu'),
-#         Dense(8, input_shape=(32,)),
-#         Activation('relu'),
-
-#         Dense(1, input_shape=(8,))
-#     ])
-#     model.compile(optimizer=Adadelta(learning_rate=lr),
-#                   loss=LossMSE(),
-#                   metrics=[MeanSquaredError(), MeanAbsoluteError()])
-#                                                                                                     # tfa.metrics.RSquare()
-#     return model
-
-# def create_model_run(lr=0.001):
-#     model = Sequential([
-#         Dense(128, input_shape=(13,)),
-#         Activation('relu'),
-
-#         Dense(32, input_shape=(128,)),
-#         Activation('relu'),
-#         Dense(8, input_shape=(32,)),
-#         Activation('relu'),
-
-#         Dense(1, input_shape=(8,))
-#     ])
-#     model.compile(optimizer=Adam(learning_rate=lr),
-#                   loss=LossMAE(),
-#                   metrics=[MeanSquaredError(), MeanAbsoluteError()])
-#                                                                                                     # tfa.metrics.RSquare()
-#     return model
-
-# def create_model_run(lr=0.001):
-#     model = Sequential([
-#         Dense(128, input_shape=(13,)),
-#         Activation('relu'),
-
-#         Dense(32, input_shape=(128,)),
-#         Activation('relu'),
-#         Dense(8, input_shape=(32,)),
-#         Activation('relu'),
-
-#         Dense(1, input_shape=(8,))
-#     ])
-#     model.compile(optimizer=Adam(learning_rate=lr),
-#                   loss=LossCosSim(),
-#                   metrics=[MeanSquaredError(), MeanAbsoluteError()])
-#                                                                                                     # tfa.metrics.RSquare()
-#     return model
-
-# def create_model_run(lr=0.001):
-#     model = Sequential([
-#         Dense(128, input_shape=(13,)),
-#         Activation('relu'),
-
-#         Dense(32, input_shape=(128,)),
-#         Activation('relu'),
-#         Dense(8, input_shape=(32,)),
-#         Activation('relu'),
-
-#         Dense(1, input_shape=(8,))
-#     ])
-#     model.compile(optimizer=Adam(learning_rate=lr),
-#                   loss=LossLog(),
-#                   metrics=[MeanSquaredError(), MeanAbsoluteError()])
-#                                                                                                     # tfa.metrics.RSquare()
-#     return model
-
