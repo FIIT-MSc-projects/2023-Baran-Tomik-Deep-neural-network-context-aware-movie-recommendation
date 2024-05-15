@@ -1,0 +1,1 @@
+Run notebook "01_create_data_for_recsys.ipynb" in this folder to get the required data for recommender system.

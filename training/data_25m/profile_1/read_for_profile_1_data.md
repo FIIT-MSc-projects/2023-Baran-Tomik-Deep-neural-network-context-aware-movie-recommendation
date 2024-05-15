@@ -1,0 +1,1 @@
+Run notebook in "25m\04_profiles\01_create_user_profiles.ipynb" to get the required data for all profiles (1, 2 and 3).

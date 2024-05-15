@@ -1,0 +1,1 @@
+Run notebook in "25m\02_movielens_context\01_cut_25m_imdb_context_and_create_train_data.ipynb" to get the required data to this folder.

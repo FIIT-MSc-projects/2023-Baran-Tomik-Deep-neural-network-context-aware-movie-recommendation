@@ -1,0 +1,1 @@
+Run notebook in "1m\01_data_preprocessing_(movie_lens_context)\02_split_data.ipynb" to get the required data to this folder.

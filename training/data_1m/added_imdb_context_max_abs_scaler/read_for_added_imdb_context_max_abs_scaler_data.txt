@@ -1,1 +1,0 @@
-Run notebook in "1m\03_added_imdb_context\02_split_added_imdb_context_data.ipynb" to get the required data to this folder.

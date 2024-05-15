@@ -9,5 +9,5 @@
     "directors_label_encoder":"data/transform_data/25m/directors_label_encoder.pkl",
     "holiday_label_encoder":"data/transform_data/25m/holiday_label_encoder.pkl",
     "titleType_label_encoder":"data/transform_data/25m/titleType_label_encoder.pkl",
-    "model":"model/arch10_25m_added_imdb_context_max_abs_scaler_gn_trained.keras"
+    "model":"model/global/global_recommending_model.keras"
 }
