@@ -22,4 +22,4 @@
 - Run `pip install -r requirements.txt` in the root folder of the project to install all the required packages.
 
 ### User Manual:
-- Run `python movie_recommender_system.py` in the /recommender folder of the project to start the recommendation ststem.
+- Run `python movie_recommender_system.py` in the /recommender folder of the project to start the recommendation system.
